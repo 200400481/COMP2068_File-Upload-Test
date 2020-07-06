@@ -1,5 +1,14 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  h1 File Upload
+  if (image)
+    img(src=image width="800px" height="800px")
+  form(method='POST' action='/upload' enctype='multipart/form-data')
+    fieldset
+        label(for='upload') Upload
+        input(type='file' name='upload')
+    fieldset
+        label(for='title')
+        input(name='title')
+    input(type='submit' value='Submit')
